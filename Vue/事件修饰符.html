@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件修饰符</title>
+    <!-- 导入vue -->
+    <script src="./js/vue.min.js"></script>
+    <script>
+        // 窗口加载完毕后执行
+    window.onload = function(){
+        var vm = new Vue({
+            // 控制id为app的标签
+            el:('#app'),
+            // 所需要用到的数据
+            data:{
+                msg:"哈哈1",
+                msg2:"哈哈2",
+                msg3:"哈哈3"
+            },
+            // 所需要用到的方法
+            methods:{
+                act1(){
+                    console.log(this.msg)
+                },
+                act2(){
+                    console.log(this.msg2)
+                },
+                act3(){
+                    console.log(this.msg3)
+                },
+            }
+        })
+    }
+    </script>
+    <style>
+    .sty1{
+        background: red;
+        width: 100px;
+        height: 50px;
+    }
+    #app{
+        background: blue;
+        width: 200px;
+        height: 100px;
+    }
+    </style>
+</head>
+<body>
+    <!-- 事件修饰符1. .stop 阻止冒泡  使用后不会向上传递事件-->
+    <!-- <div id="app" @click="act3">
+        <div class="sty1" @click="act2">
+            <input type="button" value="戳我啊！" @click.stop="act1">
+        </div>
+    </div> -->
+    <!--事件修饰符2. .prevent 阻止默认事件 -->
+    <!-- <div id="app" @click="act3">
+        <div class="sty1" @click="act2">
+            <a href="https://www.baidu.com" @click.prevent>访问百度</a>
+            <input type="button" value="戳我啊！" @click="act1">
+        </div>
+    </div> -->
+    <!-- 事件修饰符3. .capture 实现捕获事件  被捕获的事件会先执行 下面执行顺序为3 1 2-->
+    <!-- <div id="app" @click.capture="act3">
+        <div class="sty1" @click="act2">
+            <input type="button" value="戳我啊！" @click="act1">
+        </div>
+    </div> -->
+    <!-- 事件修饰符4. .self 只有被操作才会执行 不受冒泡影响 -->
+     <!-- .self 只会阻止自己身上冒泡行为的触发，并不会真正阻止 冒泡的行为 -->
+      <!-- <div id="app" @click.self="act3">
+        <div class="sty1" @click="act2">
+            <input type="button" value="戳我啊！" @click="act1">
+        </div>
+    </div> -->
+    <!-- 事件修饰符5. .once 事件修饰符之起一次作用 -->
+    <div id="app" @click.self="act3">
+        <div class="sty1" @click="act2">
+            <input type="button" value="戳我啊！" @click="act1">
+        </div>
+    </div>
+
+</body>
+</html>

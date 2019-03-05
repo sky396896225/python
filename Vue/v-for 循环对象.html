@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for循环对象</title>
+    <script src="./js/vue.min.js"></script>
+    <script>
+    window.onload = function(){
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                Person:{
+                    age:20,
+                    name:"孙尚香",
+                    gender:"女"
+                    
+                }
+            },
+
+        })
+
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 当对一个对象遍历时 第一项为值 第二项为键 第三项为索引号 -->
+        <p v-for = "(value,key,index) in Person"> {value} {{key}}  {{index}}</p>
+
+    </div>
+</body>
+</html>

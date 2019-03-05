@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for循环对象数组</title>
+    <script src="./js/vue.min.js"></script>
+    <script>
+    window.onload=function(){
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                list:[{name:"zx1",age:'2'},
+                    {name:"zx2",age:'2'},
+                    {name:"zx3",age:'2'},
+                ]
+            }
+
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+<p v-for = "(item, index) in list"> {{item.name}}  {{item.age}}   {{index}}</p>
+
+    </div>
+</body>
+</html>

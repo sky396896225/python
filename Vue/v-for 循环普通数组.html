@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for循环普通数组</title>
+    <script src="./js/vue.min.js"></script>
+    <script>
+    window.onload = function(){
+        var vm = new Vue({
+            // 选择控制标签
+            el:"#app",
+            data:{list:[0, 1, 2, 3]},
+            methods:{}
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 在使用循环时，除了数字外，其他内容都需要在Vue对象中定义 -->
+        <p v-for="(item, i) in list">这是第{{item}}个标签，它的索引为：{{i}}</p>
+    </div>
+</body>
+</html>
