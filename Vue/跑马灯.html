@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯</title>
+    <!-- 第一步 导包 -->
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script>
+    //  第二步 定义页面加载函数
+    window.onload = function(){
+        //  定义Vue 对象的格式：  var vm = new Vue({})
+        var vm = new Vue({
+        //el表示获得标签的控制权    获取标签的方法跟js相同
+        el:('#app')
+        ,
+        // data 里面存放需要用到的数据信息
+        data:{
+            msg:'猥琐发育，不要浪！',
+            intervalid:null
+        },
+        // methods 里面存放需要用到的方法
+        methods:{
+            // 新的定义函数方法 lang = function(){} => lang(){}
+            lang(){
+                // 当函数内需要用到data中的数据或者methods中的方法时可以用this来获取
+                // 判断当interveralid不为空时才执行定时器
+                if (this.intervalid !=null) return
+                this.intervalid = setInterval(()=>{  // ()=>{} 表示内部的this和外部的this指代相同
+                // string.substring(num1,num2) 表示字符串的截取
+                var start = this.msg.substring(0,1)
+                var end = this.msg.substring(1)
+                this.msg = end + start},400)
+                
+            },
+            stop(){
+                clearInterval(this.intervalid)
+                // 定时器的值重新归零
+                this.intervalid = null
+            }
+        }
+    })
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="button" value="浪起来" @click="lang">
+        <input type="button" value="猥琐发育" @click="stop">
+    </div>
+</body>
+</html>

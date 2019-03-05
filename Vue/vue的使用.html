@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.min.js"></script>
+    <script>
+        // 窗口加载完毕后执行
+    window.onload = function(){
+               // 创建新的Vue对象
+               var vm = new Vue({
+            // 表示控制id为app的标签  获取标签操作和JS一致
+            el:"#app",
+            // data里面存放需要使用的数据 以JSON的形式存储
+            data:{
+                msg:"第一个信息",
+                msg2:"<h2>我是一个标题标签</h2>",
+                title:"自定义title"
+            },
+            methods:{ //这个methods属性中定义了实例所使用的方法
+            // 定义方法的格式
+            click:function(){
+                alert("hello!")
+            }
+
+                
+            }
+        });
+    }
+    </script>
+  
+</head>
+<body>
+    <div id="app">{{msg}}
+    <!-- v-html可以把对应数据转化为html格式显示出来  -->
+    <div v-html="msg2"></div>
+    <!-- v-bind： 是vue中提供用于绑定属性的指令 此时title为vm的属性解析 可以加字符串 
+         v-bing:  可以简写为:-->
+    <input type="button" value="按钮" v-bind:title="title+'123'" v-on:click="click">
+
+
+
+    </div>
+    
+</body>
+</html>

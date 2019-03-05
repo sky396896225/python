@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+      
+        var str = function(){
+            id = setInterval(function(){
+            var a = document.getElementById("app")
+            a.append("1")
+        },500)
+        var ds = function(){
+            clearInterval(id)
+        }
+        }
+       
+        
+    </script>
+</head>
+<body>
+    <div id="app">
+        dafdafda
+    </div>
+    <input type="button" value="jiasu" onclick="str()">
+    <input type="button" value="ting" onclick="str.ds()">
+</body>
+</html>
